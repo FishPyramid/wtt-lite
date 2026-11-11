@@ -5,12 +5,13 @@ services:
     image: mysql:latest
     container_name: mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: hi
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: db
     ports:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
 
 volumes:
   mysql-data:
